@@ -1,0 +1,54 @@
+# kousai
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>虹彩ーズ制裁</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;background:linear-gradient(135deg,#0a0a0a,#1b0033,#000);color:#fff;overflow-x:hidden}
+header{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative}
+header h1{font-size:4rem;letter-spacing:.2em;text-shadow:0 0 20px #b266ff;animation:glow 2s infinite alternate}
+header p{margin-top:15px;color:#ddd;font-size:1.2rem}
+.btn{margin-top:30px;padding:14px 28px;border:none;border-radius:999px;background:#b266ff;color:#fff;font-size:1rem;cursor:pointer;transition:.3s}
+.btn:hover{transform:scale(1.08);box-shadow:0 0 20px #b266ff}
+section{padding:80px 10%;max-width:1200px;margin:auto}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.card{background:rgba(255,255,255,.08);padding:24px;border-radius:24px;backdrop-filter:blur(10px);transition:.3s}
+.card:hover{transform:translateY(-8px);box-shadow:0 10px 30px rgba(178,102,255,.4)}
+footer{text-align:center;padding:30px;color:#aaa}
+.orb{position:fixed;border-radius:50%;filter:blur(30px);opacity:.5;pointer-events:none}
+@keyframes glow{from{text-shadow:0 0 10px #b266ff}to{text-shadow:0 0 30px #ff66ff,0 0 50px #b266ff}}
+</style>
+</head>
+<body>
+<div class="orb" id="orb1"></div>
+<div class="orb" id="orb2"></div>
+<header>
+<h1>虹彩ーズ制裁</h1>
+<p>虹彩ーズ制裁公式サイトです。</p>
+<button class="btn" onclick="scrollToSection()">ENTER</button>
+</header>
+<section id="main">
+<h2 style="margin-bottom:25px;font-size:2rem;">PROJECTS</h2>
+<div class="card-grid">
+<div class="card"><h3>制裁 Protocol</h3><p>気持ち悪い音ゲーマーを制裁。</p></div>
+<div class="card"><h3>虹彩 Vision</h3><p>チーム虹彩の公式サイトです。</p></div>
+</div>
+</section>
+<footer>© 2026 虹彩ーズ制裁</footer>
+<script>
+function scrollToSection(){document.getElementById('main').scrollIntoView({behavior:'smooth'})}
+const orbs=[document.getElementById('orb1'),document.getElementById('orb2')];
+orbs[0].style.width='180px';orbs[0].style.height='180px';orbs[0].style.background='#b266ff';
+orbs[1].style.width='220px';orbs[1].style.height='220px';orbs[1].style.background='#ff66ff';
+document.addEventListener('mousemove',e=>{
+  orbs[0].style.left=(e.clientX-90)+'px';
+  orbs[0].style.top=(e.clientY-90)+'px';
+  orbs[1].style.left=(window.innerWidth-e.clientX-110)+'px';
+  orbs[1].style.top=(window.innerHeight-e.clientY-110)+'px';
+});
+</script>
+</body>
+</html>
